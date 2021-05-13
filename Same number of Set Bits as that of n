@@ -1,0 +1,46 @@
+long long(int n){
+    long long res=1;
+    while(n>0){
+        long long rsb=(n&~(n-1));
+        n-=rsb;
+        res++;
+    }
+    return res;
+}
+long long ncr(long long n,long long r){
+    if(n<r)
+        retrun 0;
+    long long res=1
+    for(int i=0;i<r;i++){
+        res=res*(n-r);
+        res=res/(i+1);
+    }
+    return res;
+    
+}
+long long solution(int num,long long k,int i )
+{
+    long long mask=1L<<i;
+    long long res=0;
+    if((mask&num)==0){
+        res=solution(num,k,i-1);
+    }
+    else{
+        long long res0=ncr(k,i);
+        long long res1=solution(num,k-1,i-1);
+        res=res0+res1;
+    }
+    return res;
+    
+}
+
+
+
+class Solution {
+public:
+    vector<int> countBits(int num) {
+        long long k=csb(num);
+        long long ans=solution(num,k,63)
+        
+    }
+};
